@@ -1,3 +1,4 @@
 .idea
 __pycache__
 docker/django/requirements.txt
+.DS_Store
