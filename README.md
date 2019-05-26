@@ -1,6 +1,6 @@
 # Django Docker Starter Kit
 This starter kit helps you quickly set up a working environment for development and production django
-application with Docker.
+application with Docker, PostgreSQL, Nginx, Gunicorn.
 
 ## Installation
 Run in terminal:
@@ -13,6 +13,9 @@ Edit requirements.txt in application directory. Then run in terminal:
 ```bash
 make startproject
 ```
+
+## Run
+Run in terminal:
 ```bash
 make dev
 ```
