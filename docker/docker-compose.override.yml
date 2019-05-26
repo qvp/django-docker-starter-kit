@@ -1,0 +1,19 @@
+version: '3.2'
+
+services:
+  web:
+    build:
+      context: ./django
+      dockerfile: Dockerfile
+    image: application_web:1.0
+    depends_on:
+      - db
+    command: ["/home/django/scripts/wait_for_postgres.sh"]
+    ports:
+      - "8000:8000"
+    environment:
+      PRODUCTION: 'false'
+    logging:
+      driver: "json-file"
+    volumes:
+      - ../application/:/app
