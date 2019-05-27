@@ -24,4 +24,5 @@ build:
 
 project:
 	cp ./application/requirements.txt ./docker/django/requirements.txt
+	make build
 	sudo docker-compose -f docker/docker-compose.startproject.yml run --rm web django-admin startproject settings .
