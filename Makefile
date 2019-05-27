@@ -22,6 +22,6 @@ build:
 	cp ./application/requirements.txt ./docker/django/requirements.txt
 	docker-compose -f ./docker/docker-compose.yml -f docker/docker-compose.override.yml -f ./docker/docker-compose.prod.yml build
 
-startproject:
+project:
 	cp ./application/requirements.txt ./docker/django/requirements.txt
 	sudo docker-compose -f docker/docker-compose.startproject.yml run --rm web django-admin startproject settings .

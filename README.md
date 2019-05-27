@@ -9,9 +9,12 @@ git clone https://github.com/qvp/django-docker-starter-kit YOUR_DIR_APP_NAME
 ```
 
 ## Setup
-Edit requirements.txt in application directory. Then run in terminal:
+* Edit requirements.txt in application directory.
+* Edit ./.env, set COMPOSE_PROJECT_NAME=YOUR_APP_NAME
+
+Then run in terminal:
 ```bash
-make startproject
+make project
 ```
 
 ## Run
@@ -30,10 +33,10 @@ This command will launch the project in production mode with Nginx and Gunicorn.
 The project will be available at your domain. Nginx settings are available at
 './docker/nginx/nginx.conf'
 
-## Table of all available `make` commands:
+## Table of available commands:
 | Command             | Description                             |
 |---------------------|-----------------------------------------|
-| `make startproject` | Create new django project               |
+| `make project`      | Create new django project               |
 | `make dev`          | Run django app with DEV environment     |
 | `make prod`         | Run django app with PROD environment    |
 | `make stop`         | Stop all application containers         |
