@@ -19,6 +19,16 @@ Run in terminal:
 ```bash
 make dev
 ```
+The project is available at `http://localhost:8000`
+
+## Production
+On your production server, run:
+```bash
+make prod
+```
+This command will launch the project in production mode with Nginx and Gunicorn.
+The project will be available at your domain. Nginx settings are available at
+'./docker/nginx/nginx.conf'
 
 ## Table of all available `make` commands:
 | Command             | Description                             |
@@ -26,10 +36,8 @@ make dev
 | `make startproject` | Create new django project               |
 | `make dev`          | Run django app with DEV environment     |
 | `make prod`         | Run django app with PROD environment    |
-| `make stop-dev`     | Stop django app with DEV environment    |
-| `make stop-prod`    | Stop django app with PROD environment   |
-| `make web`          | Connect to django app container via SSH |
-| `make nginx`        | Connect to Nginx container via SSH      |
-| `make db`           | Connect to PostgreSQL container via SSH |
-| `make build-dev`    | Build containers in DEV environment     |
-| `make build-prod`   | Build containers in PROD environment    |
+| `make stop`         | Stop all application containers         |
+| `make build`        | Build all application containers        |
+| `make ssh-web`      | Connect to Django app container via SSH |
+| `make ssh-nginx`    | Connect to Nginx container via SSH      |
+| `make ssh-db`       | Connect to PostgreSQL container via SSH |

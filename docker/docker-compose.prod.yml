@@ -5,7 +5,6 @@ services:
     build:
       context: ./django
       dockerfile: Dockerfile
-    image: application_web:1.0
     depends_on:
       - db
     command: ["/home/django/scripts/wait_for_postgres.sh"]
@@ -19,7 +18,6 @@ services:
       - ../application:/app
   nginx:
     restart: always
-    container_name: application_nginx
     build:
       context: ./nginx/
       dockerfile: Dockerfile
@@ -27,6 +25,6 @@ services:
       - ../application/static:/static
       - ../application/media:/media
     depends_on:
-      - django_web
+      - web
     ports:
       - "0.0.0.0:80:80"

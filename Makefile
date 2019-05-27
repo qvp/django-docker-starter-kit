@@ -5,30 +5,23 @@ prod:
 	export COMPOSE_HTTP_TIMEOUT=120
 	docker-compose -f ./docker/docker-compose.yml -f docker/docker-compose.override.yml -f ./docker/docker-compose.prod.yml up
 
-stop-dev:
-	docker-compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml stop
-
-stop-prod:
+stop:
 	export COMPOSE_HTTP_TIMEOUT=120
-	docker-compose -f ./docker/docker-compose.yml -f ./docker/docker-compose.prod.yml stop
+	docker-compose -f ./docker/docker-compose.yml -f docker/docker-compose.override.yml -f ./docker/docker-compose.prod.yml stop
 
-nginx:
-	docker exec -it application_nginx bash
+ssh-nginx:
+	docker-compose exec nginx bash
 
-web:
-	docker exec -it application_web bash
+ssh-web:
+	docker-compose exec web bash
 
-db:
-	docker exec -it application_db bash
+ssh-db:
+	docker-compose exec db bash
 
-build-prod:
+build:
 	cp ./application/requirements.txt ./docker/django/requirements.txt
 	docker-compose -f ./docker/docker-compose.yml -f docker/docker-compose.override.yml -f ./docker/docker-compose.prod.yml build
 
-build-dev:
-	cp ./application/requirements.txt ./docker/django/requirements.txt
-	docker-compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml build
-
 startproject:
 	cp ./application/requirements.txt ./docker/django/requirements.txt
-	sudo docker-compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml run web django-admin startproject settings .
+	sudo docker-compose -f docker/docker-compose.startproject.yml run --rm web django-admin startproject settings .

@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  web:
+    build:
+      context: ./django
+      dockerfile: django/Dockerfile
+    working_dir: /app
+    volumes:
+      - ../application/:/app
